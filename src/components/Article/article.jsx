@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../Card/card';
-import TextPreview from '../TextPreview/text-preview';
+import { Card } from '../styled-components/card/card';
+import { TextPreview } from '../styled-components/text/text';
 
 const Article = (props) => {
   return (

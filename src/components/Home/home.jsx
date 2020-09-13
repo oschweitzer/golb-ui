@@ -2,8 +2,8 @@ import { useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import Queries from '../../graphql/queries';
 import Article from '../Article/article';
-import ArticleCreationForm from '../Article/article-creation';
-import CardsContainer from '../CardsContainer/cards-container';
+import ArticleCreation from '../Article/ArticleCreation/article-creation';
+import { CardsContainer } from '../styled-components/card/card';
 
 const Home = () => {
   const [displayArticleCreationForm, setDisplayArticleCreationForm] = useState(
@@ -48,7 +48,7 @@ const Home = () => {
         <button onClick={onWriteNewArticleButtonClick}>
           Write new article
         </button>
-        {displayArticleCreationForm ? <ArticleCreationForm /> : null}
+        {displayArticleCreationForm ? <ArticleCreation /> : null}
       </div>
       <h2>Recent articles</h2>
       <CardsContainer>{articles}</CardsContainer>

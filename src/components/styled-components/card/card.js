@@ -1,6 +1,6 @@
-const { default: styled } = require('styled-components');
+import styled from 'styled-components';
 
-const Card = styled.div`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -17,4 +17,11 @@ const Card = styled.div`
   }
 `;
 
-export default Card;
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 2% 10% 2% 10%;
+  justify-content: center;
+  flex-direction: row;
+`;

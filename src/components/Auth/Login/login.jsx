@@ -1,8 +1,13 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
-import Mutations from '../../../graphql/mutations';
 import { connect } from 'react-redux';
+
+import Mutations from '../../../graphql/mutations';
 import { login } from '../../../store/actions/auth.actions';
+import { StyledButton } from '../../styled-components/button/button';
+import { AuthContainer } from '../../styled-components/container/container';
+import { StyledInput } from '../../styled-components/input/input';
+import { AuthForm, FormElement } from '../../styled-components/form/form';
 
 const Login = (props) => {
   const [login, { loading, error }] = useMutation(Mutations.LOGIN);
@@ -19,28 +24,41 @@ const Login = (props) => {
     props.login(email);
   };
 
-  return (
-    <div>
-      <form>
-        <label>
-          Email
-          <input type={'email'} onChange={(e) => setEmail(e.target.value)} />
-        </label>
+  const onEmailChangeHandler = (event) => {
+    setEmail(event.target.value);
+  };
 
-        <label>
-          Password
-          <input
-            type={'password'}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type={'button'} onClick={onLoginButtonClick}>
+  const onPasswordChangeHandler = (event) => {
+    setPassword(event.target.value);
+  };
+
+  return (
+    <AuthContainer>
+      <AuthForm>
+        <FormElement>
+          <label>
+            Email
+            <StyledInput type={'email'} onChange={onEmailChangeHandler} />
+          </label>
+        </FormElement>
+        <FormElement>
+          <label>
+            Password
+            <StyledInput type={'password'} onChange={onPasswordChangeHandler} />
+          </label>
+        </FormElement>
+
+        <StyledButton
+          type={'button'}
+          onClick={onLoginButtonClick}
+          bgColor={'#55a630'}
+        >
           Login
-        </button>
-      </form>
+        </StyledButton>
+      </AuthForm>
       {loading && <p>Loading...</p>}
       {error && <p>Error :( Please try again</p>}
-    </div>
+    </AuthContainer>
   );
 };
 

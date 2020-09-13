@@ -1,9 +1,9 @@
 import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 
-import Mutations from '../../graphql/mutations';
+import Mutations from '../../../graphql/mutations';
 
-const ArticleCreationForm = () => {
+const ArticleCreation = () => {
   const [createArticle, { loading, error }] = useMutation(
     Mutations.CREATE_ARTICLE
   );
@@ -52,4 +52,4 @@ const ArticleCreationForm = () => {
   );
 };
 
-export default ArticleCreationForm;
+export default ArticleCreation;
