@@ -28,12 +28,8 @@ const LOGIN = gql`
 `;
 
 const SIGN_UP = gql`
-  mutation ($name: String!, $password: String!, email: String!) {
-    signup(
-      name: $name
-      password: $password
-      email: $email
-    ) {
+  mutation($name: String!, $password: String!, $email: String!) {
+    signup(name: $name, password: $password, email: $email) {
       token
       user {
         id
