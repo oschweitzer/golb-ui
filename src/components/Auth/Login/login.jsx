@@ -8,6 +8,7 @@ import { StyledButton } from '../../styled-components/button/button';
 import { AuthContainer } from '../../styled-components/container/container';
 import { StyledInput } from '../../styled-components/input/input';
 import { AuthForm, FormElement } from '../../styled-components/form/form';
+import PropTypes from 'prop-types';
 
 const Login = (props) => {
   const [login, { loading, error }] = useMutation(Mutations.LOGIN);
@@ -66,6 +67,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     login: (email) => dispatch(login(email)),
   };
+};
+
+Login.propTypes = {
+  login: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(Login);

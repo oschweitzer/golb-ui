@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Card } from '../styled-components/card/card';
 import { TextPreview } from '../styled-components/text/text';
+import PropTypes from 'prop-types';
 
 const Article = (props) => {
   return (
@@ -24,4 +25,13 @@ const Article = (props) => {
   );
 };
 
-export default Article;
+Article.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+  author: PropTypes.shape({
+    email: PropTypes.string,
+    name: PropTypes.string,
+  }),
+};
+
+export default memo(Article);

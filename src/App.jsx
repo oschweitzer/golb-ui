@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Login from './components/Auth/Login/login';
 import Home from './components/Home/home';
-import NavBar from './components/NavBar/nav-bar';
+import NavBar from './components/NavBar/navbar';
+
+const Login = lazy(() => import('./components/Auth/Login/login'));
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
           <Home />
         </Route>
         <Route exact path='/login'>
-          <Login />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Login />
+          </Suspense>
         </Route>
       </Switch>
     </div>
