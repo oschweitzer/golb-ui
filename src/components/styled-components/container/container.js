@@ -5,15 +5,11 @@ export const AuthContainer = styled.div`
   justify-content: center;
   margin: 10% 25% 0 25%;
   width: 50%;
-  }
 `;
 
 export const NavBarContainer = styled.div`
   display: flex;
   background-color: #2b2d42;
-  color: #ef233c;
-  padding-left: 1%;
-  text-shadow: 1px 1px 2px #ef233c;
   align-items: center;
 `;
 
